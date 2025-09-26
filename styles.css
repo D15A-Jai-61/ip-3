@@ -1,0 +1,92 @@
+/* ---------- General ---------- */
+:root{
+  --overlay-dark: rgba(0,0,0,0.55);
+}
+
+/* Keep footer at bottom but not overlapping content */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* ---------- Header / nav ---------- */
+.navbar-brand img {
+  display: inline-block;
+}
+
+/* ---------- Hero sections (per-page backgrounds) ---------- */
+.hero {
+  color: #fff;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* overlay for better contrast */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55));
+  z-index: 0;
+}
+
+.hero > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* specific page backgrounds */
+.hero-index {
+  background-image: url('img/01.jpg');
+}
+
+.hero-about {
+  /* lighter overlay to make text readable on varied images */
+  background-image: url('img/03.jpg');
+}
+
+/* Make sure text color inside hero-index is readable */
+.hero-index .trading-info,
+.hero-index h1,
+.hero-index p,
+.hero-index label,
+.hero-index select {
+  color: #fff;
+}
+
+/* For about page we want dark text on top of overlayed background */
+.hero-about .container {
+  color: #000;
+}
+.hero-about::before {
+  background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.6));
+}
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 575.98px) {
+  .hero {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+/* ---------- Footer ---------- */
+.footer a {
+  color: #9ecbff;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Misc ---------- */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px,1px,1px,1px);
+  white-space: nowrap;
+}
